@@ -2,6 +2,7 @@
 File contains alteration from the tutorial, a few lines added to the print staments
 """
 
+import time
 import timeit
 import random
 
@@ -200,8 +201,46 @@ target = random.randint(1, 1000)
 binary_time = timeit.timeit(lambda: binary_search_sorted(unsorted_list, target), number=1)
 linear_time = timeit.timeit(lambda: linear_search(unsorted_list, target), number=1)
 
-print(f"Binary Search (With Sorting) Execution Time: {binary_time:.6f} seconds and length {len(unsorted_list)}")
-print(f"Linear Search Execution Time: {linear_time:.6f} seconds and length {len(unsorted_list)}")
+##print(f"Binary Search (With Sorting) Execution Time: {binary_time:.6f} seconds and length {len(unsorted_list)}")
+##print(f"Linear Search Execution Time: {linear_time:.6f} seconds and length {len(unsorted_list)}")
+
+# Task 3
+random_arr_100 = [random.randint(1, 100) for n in range(100)]
+random_arr_1000 = [random.randint(1, 1000) for n in range(1000)]
+random_arr_10000 = [random.randint(1, 10000) for n in range(10000)]
+
+"""
+start = time.time()
+insertion_sort(random_arr_100)
+insertion_sort_time = time.time() - start
+print(f"Insertion Sorted Array ({len(random_arr_100)} elements) and time to sort: {insertion_sort_time:.6f} seconds")
+
+start = time.time()
+insertion_sort(random_arr_1000)
+insertion_sort_time = time.time() - start
+print(f"Insertion Sorted Array ({len(random_arr_1000)} elements) and time to sort: {insertion_sort_time:.6f} seconds")
+
+start = time.time()
+insertion_sort(random_arr_10000)
+insertion_sort_time = time.time() - start
+print(f"Insertion Sorted Array ({len(random_arr_10000)} elements) and time to sort: {insertion_sort_time:.6f} seconds")
+"""
+
+start = time.time()
+bubble_sort(random_arr_100)
+bubble_sort_time = time.time() - start
+print(f"Bubble Sorted Array ({len(random_arr_100)} elements) and time to sort: {bubble_sort_time:.6f} seconds")
+
+start = time.time()
+bubble_sort(random_arr_1000)
+bubble_sort_time = time.time() - start
+print(f"Bubble Sorted Array ({len(random_arr_1000)} elements) and time to sort: {bubble_sort_time:.6f} seconds")
+
+start = time.time()
+bubble_sort(random_arr_10000)
+bubble_sort_time = time.time() - start
+print(f"Bubble Sorted Array ({len(random_arr_10000)} elements) and time to sort: {bubble_sort_time:.6f} seconds")
+
 
 # One takeaway here is that the most efficient
 # algorithm on paper isn't always the most 

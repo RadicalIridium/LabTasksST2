@@ -1,4 +1,5 @@
 import random
+import time
 import timeit
 
 
@@ -219,7 +220,7 @@ insertion_time = timeit.timeit(lambda: insertion_sort(large_random_list[:]), num
 merge_time = timeit.timeit(lambda: merge_sort(large_random_list[:]), number=10)
 
 ##print(f"Insertion Sort took: {insertion_time:.6f} seconds")
-print(f"Merge Sort took: {merge_time:.6f} seconds")
+##print(f"Merge Sort took: {merge_time:.6f} seconds")
 
 
 """
@@ -246,16 +247,40 @@ while n > 0:
 print(sum)
 """
 
-One = [1, 4, 6, 2, 7, 9, 3]
-Two = [1, 9, 8, 5, 6, 7, 4, 3, 2]
-Three = [2, 4, 6, 8]
-merge_sort(One)
-merge_sort(Two)
-merge_sort(Three)
+random_arr_100 = [random.randint(1, 100) for n in range(100)]
+random_arr_1000 = [random.randint(1, 1000) for n in range(1000)]
+random_arr_10000 = [random.randint(1, 10000) for n in range(10000)]
 
+# 1 test case for merge sort
+start = time.time()
+merge_sort(random_arr_100)
+merge_time = time.time() - start
+print(f"Merge Sorted Array ({len(random_arr_1000)} elements) and time to sort: {merge_time:.6f} seconds")
 
+start = time.time()
+merge_sort(random_arr_1000)
+merge_time = time.time() - start
+print(f"Merge Sorted Array ({len(random_arr_1000)} elements) and time to sort: {merge_time:.6f} seconds")
 
+start = time.time()
+merge_sort(random_arr_10000)
+merge_time = time.time() - start
+print(f"Merge Sorted Array ({len(random_arr_1000)} elements) and time to sort: {merge_time:.6f} seconds")
 
+# 2 test cases for insertion sort
+start = time.time()
+insertion_sort(random_arr_100)
+insertion_time = time.time() - start
+print(f"Insertion Sorted Array ({len(random_arr_100)} elements) and time to sort: {insertion_time:.6f} seconds")
 
+start = time.time()
+insertion_sort(random_arr_1000)
+insertion_time = time.time() - start
+print(f"Insertion Sorted Array ({len(random_arr_1000)} elements) and time to sort: {insertion_time:.6f} seconds")
+
+start = time.time()
+insertion_sort(random_arr_10000)
+insertion_time = time.time() - start
+print(f"Insertion Sorted Array ({len(random_arr_10000)} elements) and time to sort: {insertion_time:.6f} seconds")
 
 
