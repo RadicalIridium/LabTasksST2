@@ -94,7 +94,7 @@ class Vector:
         return '<' + str(self._coords)[1:-1] + '>'
     #adapt list representation
 
-'''
+
 #Test code for Task 0
 v1 = Vector(3)
 v2 = Vector(3)
@@ -109,7 +109,7 @@ v2[2] = 6
 
 print(v1)
 print(v2)
-
+'''
 #Test code for Task 1
 v4 = v1 - v2
 print(v4)
@@ -152,7 +152,7 @@ print(v1 * v2)
 """
 
 #task 7
-v7 = Vector([1, 2, 3])
-v8 = Vector(7)
-print(v7)
-print(v8)
+#v7 = Vector([1, 2, 3])
+#v8 = Vector(7)
+#print(v7)
+#print(v8)
