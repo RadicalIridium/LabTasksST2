@@ -1,5 +1,6 @@
 from graph import Graph
-import tkinter as tk 
+import tkinter as tk
+from tkinter import messagebox 
 import math
 
 class GraphVisualiser(tk.Tk): 
@@ -73,49 +74,54 @@ class GraphVisualiser(tk.Tk):
         self.draw_graph()
 
 
-    def remove_vertex(self, vertex): #Not altered to fit visualiser
-        if vertex in self.graph:
-            del self.graph[vertex] # Remove the vertex from the graph
-            # Remove all edges associated with the vertex
-            for v in self.graph:
-                if vertex in self.graph[v]:
-                    self.graph[v].remove(vertex)
-                    if self.weighted:
-                        del self.weights[(v, vertex)]
-                        if not self.directed:
-                            del self.weights[(vertex, v)]
+    def remove_vertex(self): #Not altered to fit visualiser
+        vertex = self.vertices_entry.get().strip()
+        
+        if not vertex:
+            return
+        
+        success = self.graph.remove_vertex(vertex)
+
+        if not success:
+            messagebox.showerror("Error", "Vertex not found in graph.")
         else:
-            print("Vertex not found in graph.")
+            self.vertices_entry.delete(0, tk.END)
+            self.draw_graph()
 
 
-    def add_edge(self, vertex1, vertex2, weight=0):
-        if vertex1 in self.graph and vertex2 in self.graph: #Check that vertices are present
-    
-            # store vertex and weight as a tuple
-            self.graph[vertex1].append(vertex2)
-            if self.weighted:
-                self.weights[(vertex1, vertex2)] = weight
-            if not self.directed: # In the case of an undirected graph, append in both directions
-                self.graph[vertex2].append(vertex1)
-                if self.weighted:
-                    self.weights[(vertex2, vertex1)] = weight
+    def add_edge(self):
+        val = self.edge_entry.get().replace(',', ' ').split()
+        
+        if len(val) < 2:
+            messagebox.showerror("Error", "Please enter an edge in the format 'A-B'.")
+            return
+        
+        v1, v2 = val[0], val[1]
+
+        if len(val) >= 3:
+            try:
+                weight = int(val[2])
+            except ValueError:
+                messagebox.showerror("Error", "Invalid weight. Please enter an integer weight after the vertices.")
+                return
         else:
-            print("One or both vertices not found in graph.")
+            weight = 0
 
-    def remove_edge(self, vertex1, vertex2): #provided by autofill - not tested
-        if vertex1 in self.graph and vertex2 in self.graph:
-            if vertex2 in self.graph[vertex1]:
-                self.graph[vertex1].remove(vertex2) # Remove the edge from vertex1 to vertex2
-                if self.weighted:
-                    del self.weights[(vertex1, vertex2)]
-            if not self.directed and vertex1 in self.graph[vertex2]:
-                self.graph[vertex2].remove(vertex1) # Remove the edge from vertex2 to vertex1
-                if self.weighted:
-                    del self.weights[(vertex2, vertex1)]
-        else:
-            print("One or both vertices not found in graph.")
+        self.graph.add_edge(v1, v2, weight)
+        self.edge_entry.delete(0, tk.END)
+        self.draw_graph()
 
+    def remove_edge(self): 
+        val = self.edge_entry.get().replace(',', ' ').split()
+        if len(val) < 2:
+            messagebox.showerror("Error", "Please enter an edge in the format 'A-B'.")
+            return
+        
+        v1, v2 = val[0], val[1]
 
+        self.graph.remove_edge(v1, v2)
+        self.edge_entry.delete(0, tk.END)
+        self.draw_graph()
     
 
 if __name__ == "__main__":

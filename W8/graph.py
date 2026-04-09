@@ -17,19 +17,29 @@ class Graph:
         if vertex not in self.graph:
             self.graph[vertex] = [] # Add a new vertex with an empty list of edges
 
-    def remove_vertex(self, vertex): #provided by autofill - not tested
-        if vertex in self.graph:
-            del self.graph[vertex] # Remove the vertex from the graph
-            # Remove all edges associated with the vertex
-            for v in self.graph:
-                if vertex in self.graph[v]:
-                    self.graph[v].remove(vertex)
-                    if self.weighted:
-                        del self.weights[(v, vertex)]
-                        if not self.directed:
-                            del self.weights[(vertex, v)]
-        else:
-            print("Vertex not found in graph.")
+    def remove_vertex(self, vertex):
+        if vertex not in self.graph:
+            return False  # tell GUI vertex was not found
+
+        # Remove edges pointing to this vertex
+        for v in self.graph:
+            if vertex in self.graph[v]:
+                self.graph[v].remove(vertex)
+                if self.weighted:
+                    self.weights.pop((v, vertex), None)
+                    if not self.directed:
+                        self.weights.pop((vertex, v), None)
+
+        # Remove the vertex itself
+        del self.graph[vertex]
+
+        # Remove any weights involving this vertex
+        if self.weighted:
+            to_remove = [k for k in self.weights if vertex in k]
+            for k in to_remove:
+                del self.weights[k]
+
+        return True  # tell GUI removal succeeded
 
 
     def add_edge(self, vertex1, vertex2, weight=0):
