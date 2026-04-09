@@ -74,7 +74,7 @@ class GraphVisualiser(tk.Tk):
         self.draw_graph()
 
 
-    def remove_vertex(self): #Not altered to fit visualiser
+    def remove_vertex(self):
         vertex = self.vertices_entry.get().strip()
         
         if not vertex:
@@ -93,7 +93,7 @@ class GraphVisualiser(tk.Tk):
         val = self.edge_entry.get().replace(',', ' ').split()
         
         if len(val) < 2:
-            messagebox.showerror("Error", "Please enter an edge in the format 'A-B'.")
+            messagebox.showerror("Error", "Please enter an edge in the format 'A B'.")
             return
         
         v1, v2 = val[0], val[1]
@@ -114,7 +114,7 @@ class GraphVisualiser(tk.Tk):
     def remove_edge(self): 
         val = self.edge_entry.get().replace(',', ' ').split()
         if len(val) < 2:
-            messagebox.showerror("Error", "Please enter an edge in the format 'A-B'.")
+            messagebox.showerror("Error", "Please enter an edge in the format 'A B'.")
             return
         
         v1, v2 = val[0], val[1]

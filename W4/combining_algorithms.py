@@ -115,100 +115,103 @@ random_arr_100000 = [random.randint(1, 100000) for n in range(100000)]
 
 #1 Insertion Sort and linear search
 start = time.time()
-sorted_arr_100_i = insertion_sort(random_arr_100)
+sorted_arr_100_i = insertion_sort(random_arr_100.copy())
 insertion_sort_time = time.time() - start
 print(f"Insertion Sorted Array ({len(random_arr_100)} elements) and time to sort: {insertion_sort_time:.6f} seconds")
 print(f"Linear search execution time: {timeit.timeit(lambda: linear_search(sorted_arr_100_i, random.randint(1, 100)), number=100):.6f} seconds for length {len(sorted_arr_100_i)}")
 
 start = time.time()
-sorted_arr_1000_i = insertion_sort(random_arr_1000)
+sorted_arr_1000_i = insertion_sort(random_arr_1000.copy())
 insertion_sort_time = time.time() - start
 print(f"Insertion Sorted Array ({len(random_arr_1000)} elements) and time to sort: {insertion_sort_time:.6f} seconds")
 print(f"Linear search execution time: {timeit.timeit(lambda: linear_search(sorted_arr_1000_i, random.randint(1, 1000)), number=100):.6f} seconds for length {len(sorted_arr_1000_i)}")
 
 start = time.time()
-sorted_arr_10000_i = insertion_sort(random_arr_10000)
+sorted_arr_10000_i = insertion_sort(random_arr_10000.copy())
 insertion_sort_time = time.time() - start
 print(f"Insertion Sorted Array ({len(random_arr_10000)} elements) and time to sort: {insertion_sort_time:.6f} seconds")
 print(f"Linear search execution time: {timeit.timeit(lambda: linear_search(sorted_arr_10000_i, random.randint(1, 10000)), number=100):.6f} seconds for length {len(sorted_arr_10000_i)}")
 
 start = time.time()
-sorted_arr_100000_i = insertion_sort(random_arr_100000)
+sorted_arr_100000_i = insertion_sort(random_arr_100000.copy())
 insertion_sort_time = time.time() - start
 print(f"Insertion Sorted Array ({len(random_arr_100000)} elements) and time to sort: {insertion_sort_time:.6f} seconds")
 print(f"Linear search execution time: {timeit.timeit(lambda: linear_search(sorted_arr_100000_i, random.randint(1, 100000)), number=100):.6f} seconds for length {len(sorted_arr_100000_i)}")
 
+print()
 #2 Bubble Sort and linear search
 start = time.time()
-sorted_arr_100_b = bubble_sort(random_arr_100)
+sorted_arr_100_b = bubble_sort(random_arr_100.copy())
 bubble_sort_time = time.time() - start
 print(f"Bubble Sorted Array ({len(random_arr_100)} elements) and time to sort: {bubble_sort_time:.6f} seconds")
 print(f"Linear search execution time: {timeit.timeit(lambda: linear_search(sorted_arr_100_b, random.randint(1, 100)), number=100):.6f} seconds for length {len(sorted_arr_100_b)}")
 
 start = time.time()
-sorted_arr_1000_b = bubble_sort(random_arr_1000)
+sorted_arr_1000_b = bubble_sort(random_arr_1000.copy())
 bubble_sort_time = time.time() - start
-print(f"Bubble Sorted Array ({len(random_arr_1000)} elements) and time to sort: {bubble_sort_time:.6f} seconds")
+print(f"Bubble Sorted Array ({len(random_arr_1000.copy())} elements) and time to sort: {bubble_sort_time:.6f} seconds")
 print(f"Linear search execution time: {timeit.timeit(lambda: linear_search(sorted_arr_1000_b, random.randint(1, 1000)), number=100):.6f} seconds for length {len(sorted_arr_1000_b)}")
 
 start = time.time()
-sorted_arr_10000_b = bubble_sort(random_arr_10000)
+sorted_arr_10000_b = bubble_sort(random_arr_10000.copy())
 bubble_sort_time = time.time() - start
 print(f"Bubble Sorted Array ({len(random_arr_10000)} elements) and time to sort: {bubble_sort_time:.6f} seconds")
 print(f"Linear search execution time: {timeit.timeit(lambda: linear_search(sorted_arr_10000_b, random.randint(1, 10000)), number=100):.6f} seconds for length {len(sorted_arr_10000_b)}")
 
 start = time.time()
-sorted_arr_100000_b = bubble_sort(random_arr_100000)
+sorted_arr_100000_b = bubble_sort(random_arr_100000.copy())
 bubble_sort_time = time.time() - start
 print(f"Bubble Sorted Array ({len(random_arr_100000)} elements) and time to sort: {bubble_sort_time:.6f} seconds")
 print(f"Linear search execution time: {timeit.timeit(lambda: linear_search(sorted_arr_100000_b, random.randint(1, 100000)), number=100):.6f} seconds for length {len(sorted_arr_100000_b)}")
 
+print()
 #3 Insertion Sort and binary search
 start = time.time()
-sorted_arr_100_i = insertion_sort(random_arr_100)
+sorted_arr_100_i = insertion_sort(random_arr_100.copy())
 insertion_sort_time = time.time() - start
 print(f"Insertion Sorted Array ({len(random_arr_100)} elements) and time to sort: {insertion_sort_time:.6f} seconds")
 print(f"Binary search execution time: {timeit.timeit(lambda: binary_search(sorted_arr_100_i, random.randint(1, 100)), number=100):.6f} seconds for length {len(sorted_arr_100_i)}")
 
 start = time.time()
-sorted_arr_1000_i = insertion_sort(random_arr_1000)
+sorted_arr_1000_i = insertion_sort(random_arr_1000.copy())
 insertion_sort_time = time.time() - start
 print(f"Insertion Sorted Array ({len(random_arr_1000)} elements) and time to sort: {insertion_sort_time:.6f} seconds")
 print(f"Binary search execution time: {timeit.timeit(lambda: binary_search(sorted_arr_1000_i, random.randint(1, 1000)), number=100):.6f} seconds for length {len(sorted_arr_1000_i)}")
 
 start = time.time()
-sorted_arr_10000_i = insertion_sort(random_arr_10000)
+sorted_arr_10000_i = insertion_sort(random_arr_10000.copy())
 insertion_sort_time = time.time() - start
 print(f"Insertion Sorted Array ({len(random_arr_10000)} elements) and time to sort: {insertion_sort_time:.6f} seconds")
 print(f"Binary search execution time: {timeit.timeit(lambda: binary_search(sorted_arr_10000_i, random.randint(1, 10000)), number=100):.6f} seconds for length {len(sorted_arr_10000_i)}")
 
 start = time.time()
-sorted_arr_100000_i = insertion_sort(random_arr_100000)
+sorted_arr_100000_i = insertion_sort(random_arr_100000.copy())
 insertion_sort_time = time.time() - start
 print(f"Insertion Sorted Array ({len(random_arr_100000)} elements) and time to sort: {insertion_sort_time:.6f} seconds")
 print(f"Binary search execution time: {timeit.timeit(lambda: binary_search(sorted_arr_100000_i, random.randint(1, 100000)), number=100):.6f} seconds for length {len(sorted_arr_100000_i)}")
 
+print()
 #4 Bubble Sort and binary search
 start = time.time()
-sorted_arr_100_b = bubble_sort(random_arr_100)
+sorted_arr_100_b = bubble_sort(random_arr_100.copy())
 bubble_sort_time = time.time() - start
 print(f"Bubble Sorted Array ({len(random_arr_100)} elements) and time to sort: {bubble_sort_time:.6f} seconds")
 print(f"Binary search execution time: {timeit.timeit(lambda: binary_search(sorted_arr_100_b, random.randint(1, 100)), number=100):.6f} seconds for length {len(sorted_arr_100_b)}")
 
 start = time.time()
-sorted_arr_1000_b = bubble_sort(random_arr_1000)
+sorted_arr_1000_b = bubble_sort(random_arr_1000.copy())
 bubble_sort_time = time.time() - start
 print(f"Bubble Sorted Array ({len(random_arr_1000)} elements) and time to sort: {bubble_sort_time:.6f} seconds")
 print(f"Binary search execution time: {timeit.timeit(lambda: binary_search(sorted_arr_1000_b, random.randint(1, 1000)), number=100):.6f} seconds for length {len(sorted_arr_1000_b)}")
 
 start = time.time()
-sorted_arr_10000_b = bubble_sort(random_arr_10000)
+sorted_arr_10000_b = bubble_sort(random_arr_10000.copy())
 bubble_sort_time = time.time() - start
 print(f"Bubble Sorted Array ({len(random_arr_10000)} elements) and time to sort: {bubble_sort_time:.6f} seconds")
 print(f"Binary search execution time: {timeit.timeit(lambda: binary_search(sorted_arr_10000_b, random.randint(1, 10000)), number=100):.6f} seconds for length {len(sorted_arr_10000_b)}")
 
 start = time.time()
-sorted_arr_100000_b = bubble_sort(random_arr_100000)
+sorted_arr_100000_b = bubble_sort(random_arr_100000.copy())
 bubble_sort_time = time.time() - start
 print(f"Bubble Sorted Array ({len(random_arr_100000)} elements) and time to sort: {bubble_sort_time:.6f} seconds")
 print(f"Binary search execution time: {timeit.timeit(lambda: binary_search(sorted_arr_100000_b, random.randint(1, 100000)), number=100):.6f} seconds for length {len(sorted_arr_100000_b)}")
